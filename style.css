@@ -849,6 +849,11 @@ p.footer__copy{
         flex-direction: column;
         padding: 25px;
     }
+    
+    .grid img{
+        width: 100px;
+        height: 100px;
+    }
 
     section#portfolio{
         flex-direction: column;
