@@ -847,7 +847,7 @@ p.footer__copy{
 
     section#certificate{
         flex-direction: column;
-        padding: 50px;
+        padding: 25px;
     }
 
     section#portfolio{
@@ -857,7 +857,7 @@ p.footer__copy{
     
     section#contact{
         flex-direction: column;
-        padding: 50px;
+        padding: 25px;
     }
 
     section#contact .container{
