@@ -1,7 +1,4 @@
-function toggle(){
-    var header = document.getElementById('header')
-    header.classList.toggle('act')
-}
+
 
 const lightbox = document.createElement('div')
 lightbox.id = 'lightbox'

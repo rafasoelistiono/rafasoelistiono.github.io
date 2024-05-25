@@ -11,15 +11,15 @@
 }
 
 :root{
-    --text-p: #9FA4A8;
-    --one-color:#0B132B;
-    --two-color:#1C2541;
-    --three-color:#3A506B;
-    --four-color:#5BC0BE;
-    --five-color:#6FFFE9;
-    --six-color:#e6fafc;
-    --seven-color:#fefcfd;
-    --eight-color:#bfcde0;
+    --text-p: #E0E0E0; /* Light gray for text */
+    --one-color:#121212; /* Deep black for strong and bold impression */
+    --two-color:#333333; /* Dark gray for backgrounds */
+    --three-color:#555555; /* Medium gray for separators */
+    --four-color:#777777; /* Darker gray for a professional look */
+    --five-color:#999999; /* Gray for hover or focus */
+    --six-color:#E0E0E0; /* Light gray for text */
+    --seven-color:#AAAAAA; /* Medium-light gray for background, giving a spacious impression */
+    --eight-color:#CCCCCC; /* Light gray, good for accents */
 }
 
 
@@ -31,59 +31,42 @@ header{
     padding: 0 50px;
     display: flex;
     justify-content: center;
-    background: var(--two-color);
+    background: rgba(255, 255, 255, 0.5); /* Glassmorphism effect */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
     align-items: center;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for depth */
 }
 
 header ul{
     position: relative;
     display: flex;
+    gap: 20px; /* Spacing between menu items */
 }
 
 header ul li{
     position: relative;
     list-style: none;
-    opacity: 0;
-    transition: .5s;
-    transform: translateX(-10px);
-}
-
-header ul li:nth-child(1){
-    transition-delay: .2s;
-}
-header ul li:nth-child(2){
-    transition-delay: .4s;
-}
-header ul li:nth-child(3){
-    transition-delay: .6s;
-}
-header ul li:nth-child(4){
-    transition-delay: .8s;
-}
-header ul li:nth-child(5){
-    transition-delay: 1s;
+    opacity: 1; /* Make all items visible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for hover effects */
 }
 
 header ul li a{
     position: relative;
     letter-spacing: 1px;
     padding: 5px 10px;
-    color: var(--six-color);
+    color: var(--two-color);
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.5s;
-    border-bottom: 2px solid transparent;
-}
-header ul li a.aktif,
-header ul li a:hover{
-    border-bottom: 2px solid var(--five-color);
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.toggle{
-    display: none;
+header ul li a:hover,
+header ul li a.aktif{
+    color: var(--one-color); /* Highlight color on hover and active */
 }
+
 
 /*section home*/
 
@@ -93,8 +76,12 @@ section#home{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 150px 100px 100px;
-    background: var(--two-color);
+    padding: 150px 50px; /* Responsive padding */
+    background: rgba(255, 255, 255, 0.8); /* Glassmorphism background */
+    backdrop-filter: blur(15px); /* Enhanced blur for glass effect */
+    border-radius: 20px; /* Rounded corners for glass panel */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.5s ease-in-out; /* Smooth transition for responsive changes */
 }
 
 section#home .container-home{
@@ -102,89 +89,90 @@ section#home .container-home{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 800px; /* Max width to maintain layout integrity */
+    animation: fadeIn 1.5s ease-out forwards; /* Animation for fade in effect */
 }
 
 section#home h2{
-    font-size: 2em;
+    font-size: calc(1.5em + 1vw); /* Responsive font size */
     text-transform: uppercase;
     color: var(--seven-color);
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased spacing */
     opacity: 0;
-    transition: .5s;
-    transform: translateY(-10px);
-    text-shadow: -3px 3px 0px var(--five-color),
-    -6px 6px 0px var(--four-color);
+    transform: translateY(-20px); /* Increased initial translation for animation */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for animation */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
 }
 
 section#home h2 span{
-    color: var(--five-color);
-    text-transform: none;
+    color: var(--one-color); /* Highlight color for contrast */
+    font-weight: bold; /* Bold font for emphasis */
     text-shadow: none;
 }
 
 section#home h1{
-    font-size: 1.5em;
+    font-size: calc(1.2em + 1vw); /* Responsive font size */
     color: var(--seven-color);
-    font-weight: 500;
-    margin-bottom: 10px;
-    transform: translateY(-10px);
+    font-weight: 600; /* Increased font weight for emphasis */
+    margin-bottom: 20px;
+    transform: translateY(-20px);
     opacity: 0;
-    transition: .5s;
-    transition-delay: .2s;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Adjusted timing for staggered effect */
+    transition-delay: 0.3s; /* Delay for sequential animation */
 }
 
 section#home p{
-    font-size: 18px;
+    font-size: calc(16px + 0.5vw); /* Responsive font size */
     color: var(--seven-color);
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     text-align: center;
-    letter-spacing: 1px;
-    transform: translateY(-10px);
+    letter-spacing: 1.2px; /* Increased letter spacing for aesthetic */
+    transform: translateY(-20px);
     opacity: 0;
-    transition: .5s;
-    transition-delay: .4s;
+    transition: opacity 1.4s ease-out, transform 1.4s ease-out;
+    transition-delay: 0.6s; /* Further delay for a smooth sequential appearance */
 }
 
 section#home a{
     color: var(--seven-color);
     cursor: pointer;
-    padding: 15px 30px;
+    padding: 20px 40px; /* Larger padding for better clickability */
     display: inline-flex;
     align-items: center;
     text-align: center;
-    margin: 20px;
-    letter-spacing: 1px;
-    font-size: 20px;
+    margin: 30px; /* Increased margin for better spacing */
+    letter-spacing: 1.2px;
+    font-size: calc(18px + 0.5vw); /* Responsive font size */
     text-transform: uppercase;
     white-space: nowrap;
     outline: none;
     position: relative;
-    border: 3px solid var(--three-color);
+    border: 4px solid var(--three-color); /* Thicker border for visibility */
     background-color: transparent;
-    border-radius: 15px 0 15px 15px;
+    border-radius: 20px; /* Rounded borders for aesthetic */
     text-decoration: none;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
     opacity: 0;
-    transition: .5s;
-    transition-delay: .6s;
+    transition: opacity 1.6s ease-out, transform 1.6s ease-out;
+    transition-delay: 0.8s; /* Additional delay for the final element */
 }
 
 section#home a i{
-    font-size: 1.5em;
-    margin-right: 10px;
+    font-size: 2em; /* Larger icon size for visibility */
+    margin-right: 15px; /* Increased spacing between icon and text */
 }
 
 section#home a:before {
     content: "";
     position: absolute;
-    right: -15px;
-    top: -15px;
+    right: -20px; /* Adjusted positioning for aesthetic */
+    top: -20px;
     width: 0;
     height: 0;
     border-style: solid;
     border-radius: 50%;
-    border-width: 0 35px 35px 0;
+    border-width: 0 40px 40px 0; /* Increased border size for visibility */
     border-color: transparent var(--five-color) transparent transparent;
     z-index: 1;
 }
@@ -192,45 +180,17 @@ section#home a:before {
 section#home a:hover{
     background-color: var(--one-color);
     color: var(--six-color);
+    transform: scale(1.05); /* Scale effect on hover for interactivity */
 }
 
-.custom-1{
-    position: absolute;
-    top: 20vh;
-    left: 200px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 5px solid var(--five-color);
-    animation: rock 2s infinite linear;
-}
-
-.custom-2{
-    position: absolute;
-    bottom: 20vh;
-    right: 150px;
-    width: 200px;
-    height: 200px;
-    background: var(--five-color);
-    transform: rotate(40deg);
-    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-    animation: rock 2s infinite linear;
-}
-
-.custom-3{
-    position: absolute;
-    bottom: 75vh;
-    left: 150px;
-    width: 50px;
-    height: 50px;
-    border-radius: 20px;
-    border: 5px solid var(--five-color);
-    animation: rock 2s infinite linear;
-}
-
-@keyframes rock{
-    50%{
-        transform: translateY(1rem);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -239,106 +199,119 @@ section#about{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px;
-    background: var(--two-color);
+    padding: 80px 50px;
+    background: linear-gradient(145deg, rgba(var(--two-color-rgb), 0.8), rgba(var(--three-color-rgb), 0.8));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
 }
 
 .container-about{
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    padding-left: 10px;
-    border-left: 5px solid var(--five-color);
+    padding-left: 20px;
+    border-left: 5px solid rgba(var(--five-color-rgb), 0.5);
+    gap: 20px;
 }
 
 .text-about{
     position: relative;
-    max-width: 50%;
-    padding-right: 10px;
+    max-width: 45%;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
 .text-about h2{
-    font-size: 2em;
+    font-size: 2.5em;
     text-transform: uppercase;
     color: var(--seven-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-family: 'Tourney', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .text-about p{
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--seven-color);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    margin-bottom: 15px;
+    letter-spacing: 1.2px;
 }
 
 section#about a{
     color: var(--seven-color);
     cursor: pointer;
-    padding: 15px 30px;
+    padding: 18px 35px;
     display: inline-flex;
     align-items: center;
     text-align: center;
-    margin: 20px 0;
-    letter-spacing: 1px;
-    font-size: 20px;
+    margin: 25px 0;
+    letter-spacing: 1.2px;
+    font-size: 22px;
     white-space: nowrap;
     outline: none;
     position: relative;
-    border: 3px solid var(--three-color);
+    border: 4px solid rgba(var(--three-color-rgb), 0.5);
     background-color: transparent;
-    border-radius: 15px 0 15px 15px;
+    border-radius: 20px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
 }
 
 section#about a i{
-    font-size: 1.5em;
-    margin-right: 10px;
+    font-size: 2em;
+    margin-right: 15px;
 }
 
 section#about a:before{
     content: "";
     position: absolute;
-    right: -15px;
-    top: -15px;
+    right: -20px;
+    top: -20px;
     width: 0;
     height: 0;
     border-style: solid;
     border-radius: 50%;
-    border-width: 0 35px 35px 0;
-    border-color: transparent var(--five-color) transparent transparent;
+    border-width: 0 45px 45px 0;
+    border-color: transparent rgba(var(--five-color-rgb), 0.5) transparent transparent;
     z-index: 1;
 }
 
 .img-about{
-    max-width: 320px;
-    height: fit-content;
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .img-about::before{
     content: "";
     position: absolute;
-    top: -30px;
-    right: 30px;
-    width: 300px;
-    height: 200px;
-    border-radius: 20px;
-    border: 5px solid var(--five-color);
+    top: -35px;
+    right: 35px;
+    width: 320px;
+    height: 220px;
+    border-radius: 25px;
+    border: 6px solid rgba(var(--five-color-rgb), 0.5);
 }
 
 .img-about img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    object-fit: cover;
 }
-
 /*section skill*/
 section#skill{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 100px;
-    background: var(--two-color);
+    background: rgba(255, 255, 255, 0.75); /* Glassmorphism background */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    border-radius: 20px; /* Rounded corners for glass panel */
 }
 
 .container-best:nth-child(1){
@@ -439,15 +412,16 @@ section#skill{
     position: absolute;
     left: 0;
 }
-
 /*section certificate*/
 section#certificate{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row-reverse;
-    padding: 100px;
-    background: var(--two-color);
+    padding: 50px; /* Padding yang lebih kecil untuk responsivitas */
+    background: rgba(255, 255, 255, 0.75); /* Menggunakan background transparan untuk efek glassmorphism */
+    backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
+    border-radius: 20px; /* Sudut yang membulat */
 }
 
 .grid{
@@ -455,30 +429,35 @@ section#certificate{
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    grid-gap: 10px;
+    gap: 10px; /* Menggunakan gap untuk jarak antar item */
 }
 
 .grid img{
-    width: 200px;
-    height: 200px;
+    width: 100%; /* Lebar penuh untuk responsivitas */
+    max-width: 200px; /* Maksimal lebar gambar */
+    height: auto; /* Tinggi otomatis berdasarkan aspek rasio */
     object-fit: cover;
     cursor: pointer;
+    border-radius: 10px; /* Sudut yang membulat pada gambar */
 }
 
 #lightbox{
     position: fixed;
     z-index: 1000;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .8);
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 #lightbox.active{
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #lightbox img{
@@ -487,6 +466,7 @@ section#certificate{
     padding: 4px;
     background-color: #000;
     border: 2px solid #fff;
+    border-radius: 10px; /* Sudut yang membulat pada gambar */
 }
 
 /*section portofolio*/
@@ -494,8 +474,10 @@ section#portfolio{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px;
-    background: var(--two-color);
+    padding: 50px; /* Padding yang lebih kecil untuk responsivitas */
+    background: rgba(255, 255, 255, 0.75); /* Menggunakan background transparan untuk efek glassmorphism */
+    backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
+    border-radius: 20px; /* Sudut yang membulat */
 }
 
 .container-box-work{
@@ -505,18 +487,25 @@ section#portfolio{
     padding: 10px;
     margin: 10px;
     flex-direction: column;
-    width: 50%;
+    width: 50%; /* Lebar yang disesuaikan untuk responsivitas */
+    background: rgba(255, 255, 255, 0.5); /* Background transparan untuk efek glassmorphism */
+    border-radius: 15px; /* Sudut yang membulat */
+    backdrop-filter: blur(5px); /* Efek blur untuk glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border tipis untuk menonjolkan efek glass */
 }
 
 .container-box-work .img-box-work{
-    width: 200px;
-    height: 150px;
+    width: 100%; /* Lebar penuh untuk responsivitas */
+    max-width: 200px; /* Maksimal lebar gambar */
+    height: auto; /* Tinggi otomatis berdasarkan aspek rasio */
+    border-radius: 10px; /* Sudut yang membulat pada gambar */
 }
 
 .container-box-work .img-box-work img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px; /* Sudut yang membulat pada gambar */
 }
 
 .container-box-work h2{
@@ -554,6 +543,9 @@ section#portfolio{
     padding: 10px 0;
     color: var(--seven-color);
     text-decoration: none;
+    background: rgba(255, 255, 255, 0.5); /* Background transparan untuk efek glassmorphism */
+    border-radius: 10px; /* Sudut yang membulat */
+    backdrop-filter: blur(5px); /* Efek blur untuk glassmorphism */
 }
 
 .swiper-pagination-bullet{
@@ -568,7 +560,7 @@ section#portfolio{
 .swiper-slide {
 text-align: left;
 font-size: 18px;
-background: var(--two-color);
+background: rgba(255, 255, 255, 0.5);
 
 /* Center slide text vertically */
 display: -webkit-box;
@@ -594,8 +586,11 @@ section#contact{
     align-items: center;
     width: 100%;
     padding: 50px;
-    background-color: var(--two-color);
+    background-color: rgba(255, 255, 255, 0.8); /* Menggunakan background transparan untuk efek glassmorphism */
+    backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
+    border-radius: 20px; /* Sudut yang membulat */
     flex-direction: row-reverse;
+    transition: all 0.3s ease; /* Transisi yang halus */
 }
 
 .container-form{
@@ -603,6 +598,8 @@ section#contact{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%; /* Responsif untuk semua ukuran layar */
+    max-width: 500px; /* Maksimal lebar untuk mempertahankan integritas layout */
 }
 
 .container-contact{
@@ -610,6 +607,7 @@ section#contact{
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    gap: 20px; /* Memberikan jarak antar elemen */
 }
 
 section#contact .container{
@@ -617,6 +615,9 @@ section#contact .container{
     max-width: 500px;
     margin: 25px;
     padding: 25px;
+    background: rgba(255, 255, 255, 0.5); /* Background transparan untuk efek glassmorphism */
+    border-radius: 15px; /* Sudut yang membulat */
+    backdrop-filter: blur(5px); /* Efek blur untuk glassmorphism */
 }
 
 .form-group{
@@ -635,19 +636,21 @@ section#contact .container{
 .form-group input,
 .form-group textarea{
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     font-size: 18px;
     border: none;
     outline: none;
-    background: none;
-    border-bottom: 1px solid var(--five-color);
+    background: rgba(255, 255, 255, 0.5); /* Background transparan untuk efek glassmorphism */
+    border-radius: 10px; /* Sudut yang membulat */
+    backdrop-filter: blur(5px); /* Efek blur untuk glassmorphism */
+    border-bottom: 2px solid var(--five-color); /* Garis bawah yang lebih tebal */
     margin-top: 5px;
-    transition: .2s ease;
+    transition: background-color 0.3s ease; /* Transisi yang halus */
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-    background-color: var(--three-color);
+    background-color: rgba(var(--three-color-rgb), 0.3); /* Warna fokus dengan transparansi */
 }
 
 textarea{
@@ -673,6 +676,7 @@ button[type="submit"]{
     background-color: transparent;
     border-radius: 15px 0 15px 15px;
     text-decoration: none;
+    transition: background-color 0.3s ease; /* Transisi yang halus */
 }
 
 button[type="submit"] i{
@@ -713,7 +717,9 @@ footer{
     width: 100%;
     height: 200px;
     padding: 100px;
-    background-color: var(--two-color);
+    background-color: rgba(255, 255, 255, 0.8); /* Menggunakan background transparan untuk efek glassmorphism */
+    backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
+    border-radius: 20px; /* Sudut yang membulat */
 }
 
 .link-footer{
@@ -744,7 +750,6 @@ p.footer__copy{
     color: var(--text-p);
     text-align: center;
 }
-
 .reveal{
     position: relative;
     transform: translateY(50px);
@@ -758,6 +763,10 @@ p.footer__copy{
 }
 
 @media (max-width:990px){
+
+    header{
+        display: none;
+    }
     
     section#home{
         padding: 50px;
@@ -810,7 +819,7 @@ p.footer__copy{
     
     
     .img-about{
-        max-width: 75%;
+        max-width: 55%;
     }
 
     section#skill{
@@ -928,89 +937,5 @@ p.footer__copy{
         transition-delay: 0s;
     }
     
-
-    header{
-        position: fixed;
-        bottom: 0;
-        right: 10px;
-        width: 60px;
-        height: 60px;
-        margin: 10px;
-        padding: 10px;
-        border-radius: 50%;
-        display: flex;
-        background: var(--three-color);
-        z-index: 1000;
-    } 
-    
-    header ul{
-        position: inherit;
-        bottom: 0;
-        right: inherit;
-        width: 300px;
-        height: 100%;
-        height: calc(100vh - 80px);
-        padding: 50px;
-        text-align: left;
-        overflow: auto;
-        transition: 0.5s;
-        background: var(--one-color);
-        flex-direction: column;
-        opacity: 0;
-        transform: translateX(100%);
-    }
-
-    header.act ul{
-        top: 80px;
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    header ul li a{
-        margin: 10px 0;
-        font-size: 24px;
-    }
-
-    .toggle{
-        display: flex;
-        position: relative;
-        width: 25px;
-        height: 30px;
-        cursor: pointer;
-    }
-
-    .toggle:before{
-        content: '';
-        position: absolute;
-        top: 4px;
-        width: 100%;
-        height: 2px;
-        background: var(--six-color);
-        z-index: 1;
-        box-shadow: 0 10px 0 var(--six-color);
-        transition: 0.5s;
-    }
-
-    .toggle:after{
-        content: '';
-        position: absolute;
-        bottom: 4px;
-        width: 100%;
-        height: 2px;
-        background: var(--six-color);
-        z-index: 1;
-        transition: 0.5s;
-    }
-
-    header.act .toggle:before{
-        top: 14px;
-        transform: rotate(45deg);
-        box-shadow: 0 0 0 var(--six-color);
-    }
-
-    header.act .toggle:after{
-        bottom: 14px;
-        transform: rotate(-45deg);
-    }
-
 }
+
