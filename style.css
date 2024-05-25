@@ -183,6 +183,21 @@ section#home a:hover{
     transform: scale(1.05); /* Scale effect on hover for interactivity */
 }
 
+.typing-text {
+    font-size: 24px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { border-color: transparent; }
+    50% { border-color: black; }
+    100% { border-color: transparent; }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

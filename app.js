@@ -69,3 +69,38 @@ function content(){
     hh.style.opacity='1';
         hh.style.transform='translateY(0)';
 }
+
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const typingText = document.querySelector('.typing-text');
+    const textArray = ["Computer Science Student", "Web developer.", "Data scientist.", "Hit me up!"];
+    let arrayIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentText = textArray[arrayIndex];
+        if (isDeleting) {
+            charIndex--;
+            typingText.textContent = currentText.substring(0, charIndex);
+        } else {
+            charIndex++;
+            typingText.textContent = currentText.substring(0, charIndex);
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+            setTimeout(() => {
+                isDeleting = true;
+                setTimeout(type, 500); // Pause before starting to delete
+            }, 2000); // Pause before starting to delete
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            arrayIndex = (arrayIndex + 1) % textArray.length;
+            setTimeout(type, 500); // Pause before starting to type new text
+        } else {
+            setTimeout(type, isDeleting ? 50 : 150); // Adjust typing speed here
+        }
+    }
+
+    type();
+});
