@@ -77,12 +77,33 @@ section#home{
     align-items: center;
     min-height: 100vh;
     padding: 150px 50px; /* Responsive padding */
-    background: rgba(255, 255, 255, 0.8); /* Glassmorphism background */
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism background */
     backdrop-filter: blur(15px); /* Enhanced blur for glass effect */
     border-radius: 20px; /* Rounded corners for glass panel */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: all 0.5s ease-in-out; /* Smooth transition for responsive changes */
 }
+
+.content-1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00,#f0f);
+    clip-path: circle(30% at right 70%);
+    
+}
+.content-2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f3,#e91e63);
+    clip-path: circle(20% at 10% 10%);
+}
+
 
 section#home .container-home{
     display: flex;
@@ -90,7 +111,7 @@ section#home .container-home{
     align-items: center;
     flex-direction: column;
     width: 100%; /* Full width for better responsiveness */
-    max-width: 800px; /* Max width to maintain layout integrity */
+    max-width: 750px;
     animation: fadeIn 1.5s ease-out forwards; /* Animation for fade in effect */
 }
 
@@ -790,6 +811,14 @@ p.footer__copy{
         align-items: center;
         display: flex;
         overflow: hidden;
+    }
+
+    section#home::before{
+        display: none;
+    }
+
+    section#home::after{
+        display: none;
     }
 
     section#about{
