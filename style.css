@@ -238,7 +238,6 @@ section#about{
     padding: 80px 50px;
     background: linear-gradient(145deg, rgba(var(--two-color-rgb), 0.8), rgba(var(--three-color-rgb), 0.8));
     backdrop-filter: blur(10px);
-    border-radius: 20px;
 }
 
 .container-about{
@@ -347,7 +346,6 @@ section#skill{
     padding: 100px;
     background: rgba(255, 255, 255, 0.75); /* Glassmorphism background */
     backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
-    border-radius: 20px; /* Rounded corners for glass panel */
 }
 
 .container-best:nth-child(1){
@@ -381,25 +379,30 @@ section#skill{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 20%;
-    transform: rotate(-90deg);
+    max-width: 100%; /* Diperluas untuk responsivitas */
+    transform: rotate(0deg); /* Dihapus rotasi */
+    background: rgba(255, 255, 255, 0.75); /* Glassmorphism background */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    border-radius: 20px; /* Rounded corners for glass panel */
+    padding: 20px; /* Padding added for spacing */
 }
 
 .title-section h2{
     font-size: 2em;
-    width: fit-content;
+    width: 100%; /* Width adjusted for responsiveness */
     text-transform: uppercase;
     font-family: 'Tourney', cursive;
     color: var(--seven-color);
     letter-spacing: 1px;
-    padding: 0 25px;
+    padding: 10px 0; /* Padding adjusted */
     border-bottom: 5px solid var(--five-color);
+    text-align: center; /* Centered text */
 }
 
 .title-section p{
     font-size: 1.25em;
     color: var(--seven-color);
-    margin: 15px;
+    margin: 10px 0; /* Margin adjusted */
     letter-spacing: 1px;
     text-align: center;
 }
@@ -408,45 +411,50 @@ section#skill{
     font-size: 1.5em;
     color: var(--seven-color);
     margin: 10px;
+    text-align: center; /* Centered text for consistency */
 }
 
 .container-skill{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px;
+    display: grid; /* Changed to grid for better layout control */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+    gap: 20px; /* Gap between grid items */
+    padding: 20px; /* Padding for grid container */
+    margin: 0 auto; /* Centering the grid container */
+    max-width: 1200px; /* Max width for large screens */
 }
 
 .container-best{
-    margin: 20px;
+    background: rgba(255, 255, 255, 0.75); /* Glassmorphism style */
+    backdrop-filter: blur(5px); /* Blur effect for glassmorphism */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .pricing-plan__description{
-    padding-right: 25px;
+    padding: 0 15px; /* Padding adjusted */
 }
 
 .pricing-plan__list{
     padding: 0;
     margin: 0;
+    list-style: none; /* Removing default list style */
 }
 
 .pricing-plan__feature{
-    list-style: none;
-    margin: 0;
-    padding-left: 25px;
+    margin: 10px 0; /* Margin adjusted for spacing */
+    padding-left: 25px; /* Padding for custom bullet */
     position: relative;
     font-size: 0.9em;
     color: var(--text-p);
 }
 
-.pricing-plan__feature:not(:last-child){
-    margin-bottom: 0.5em;
-}
-
 .pricing-plan__feature::before{
-    content: "\2714";
+    content: "\2714"; /* Unicode checkmark */
     color: var(--five-color);
     position: absolute;
     left: 0;
+    top: 0; /* Align with the text */
 }
 /*section certificate*/
 section#certificate{
@@ -513,7 +521,6 @@ section#portfolio{
     padding: 50px; /* Padding yang lebih kecil untuk responsivitas */
     background: rgba(255, 255, 255, 0.75); /* Menggunakan background transparan untuk efek glassmorphism */
     backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-    border-radius: 20px; /* Sudut yang membulat */
 }
 
 .container-box-work{
@@ -622,11 +629,21 @@ section#contact{
     align-items: center;
     width: 100%;
     padding: 50px;
-    background-color: rgba(255, 255, 255, 0.8); /* Menggunakan background transparan untuk efek glassmorphism */
+    background-color: rgba(255, 255, 255, 0.5); /* Menggunakan background transparan untuk efek glassmorphism */
     backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-    border-radius: 20px; /* Sudut yang membulat */
     flex-direction: row-reverse;
     transition: all 0.3s ease; /* Transisi yang halus */
+    z-index: 5;
+}
+
+.content-3{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(54, 188, 221),rgb(243, 196, 41));
+    clip-path: circle(15% at 20% 30%);
 }
 
 .container-form{
@@ -755,7 +772,6 @@ footer{
     padding: 100px;
     background-color: rgba(255, 255, 255, 0.8); /* Menggunakan background transparan untuk efek glassmorphism */
     backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-    border-radius: 20px; /* Sudut yang membulat */
 }
 
 .link-footer{
