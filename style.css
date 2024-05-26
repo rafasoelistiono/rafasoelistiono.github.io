@@ -316,10 +316,18 @@ section#about a:before{
 }
 
 .img-about{
-    max-width: 350px;
+    max-width: 100%; /* Responsif untuk semua ukuran layar */
     height: auto;
     border-radius: 15px;
     overflow: hidden;
+    background: rgba(var(--five-color-rgb), 0.3); /* Background berwarna dengan transparansi */
+    backdrop-filter: blur(8px); /* Efek blur untuk estetika */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan untuk kedalaman */
+    transition: transform 0.3s ease; /* Transisi halus untuk hover */
+}
+
+.img-about:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
 }
 
 .img-about::before{
@@ -331,6 +339,7 @@ section#about a:before{
     height: 220px;
     border-radius: 25px;
     border: 6px solid rgba(var(--five-color-rgb), 0.5);
+    background: rgba(var(--five-color-rgb), 0.2); /* Background berwarna dengan transparansi */
 }
 
 .img-about img{
