@@ -22,6 +22,9 @@
     --eight-color:#CCCCCC; /* Light gray, good for accents */
 }
 
+img.lazy{opacity:0;transition:opacity 0.3s ease-in-out}
+img.lazy.loaded{opacity:1}
+
 
 header{
     position: fixed;
