@@ -236,7 +236,7 @@ section#about{
     justify-content: center;
     align-items: center;
     padding: 80px 50px;
-    background: linear-gradient(145deg, rgba(var(--two-color-rgb), 0.8), rgba(var(--three-color-rgb), 0.8));
+    background: rgba(255, 255, 255, 0.75); /* Glassmorphism background */
     backdrop-filter: blur(10px);
 }
 
