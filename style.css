@@ -421,31 +421,7 @@ section#skill {
     left: 0;
     top: 0;
 }
-section#certificate {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
-    padding: 50px;
-    background: rgba(255, 255, 255, .75);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-}
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 10px;
-}
-.grid img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px;
-}
+
 #lightbox {
     position: fixed;
     z-index: 1000;
