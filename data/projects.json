@@ -1,0 +1,54 @@
+[
+  {
+    "id": "yomu-backend-service",
+    "title": "Yomu",
+    "slug": "yomu-backend-service",
+    "category": "Backend Service / Java Spring Boot",
+    "year": "May 2026 - Jun 2026",
+    "description": "Designed and implemented a modular backend service using layered architecture across controller, service, repository, DTO, and factory responsibilities. Applied SOLID principles, Factory Pattern-based authentication responses, JWT with softguard, validation, exception handling, role-based authentication flow, and testable service logic for scalable team development.",
+    "image": "",
+    "link": "https://github.com/advprog-2026-A14-project/yomu-backend-java",
+    "repository": "https://github.com/advprog-2026-A14-project/yomu-backend-java",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "courtify-booking-platform",
+    "title": "Courtify",
+    "slug": "courtify-booking-platform",
+    "category": "Web + Mobile Platform",
+    "year": "Aug 2025 - Dec 2025",
+    "description": "Built sports court booking flows for search, filtering, schedule selection, reservation, and booking management. Integrated venue and scheduling APIs, supported Flutter mobile delivery, worked in a cross-functional Agile squad, and implemented CI/CD checks and deployment pipeline for consistent releases.",
+    "image": "",
+    "link": "https://github.com/PBP25-D10/Courtify",
+    "repository": "https://github.com/PBP25-D10/Courtify",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "extensipedia-bem-pe-feb-ui",
+    "title": "Extensipedia",
+    "slug": "extensipedia-bem-pe-feb-ui",
+    "category": "Full-stack Website",
+    "year": "2025",
+    "description": "Worked as a full-stack developer for BEM PE FEB UI's Extensipedia platform, handling API integration, CI/CD workflow, API contract design, design-pattern-based implementation, and VPS deployment on Hostinger.",
+    "image": "",
+    "link": "https://bempefebui.com/",
+    "repository": "",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "adaptive-motion-planning-arm-robot",
+    "title": "Adaptive Motion Planning Arm Robot",
+    "slug": "adaptive-motion-planning-arm-robot",
+    "category": "Robotics / Motion Planning",
+    "year": "2026",
+    "description": "Integrated Pinocchio inverse kinematics, OMPL motion planning, collision checking, and HintCache-based adaptive robotic experiments for arm robot motion planning research.",
+    "image": "",
+    "link": "https://github.com/rafasoelistiono/MVP-CTAMP-ROBOT",
+    "repository": "https://github.com/rafasoelistiono/MVP-CTAMP-ROBOT",
+    "featured": true,
+    "order": 4
+  }
+]

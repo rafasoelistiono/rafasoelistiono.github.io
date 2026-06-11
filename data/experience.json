@@ -1,0 +1,70 @@
+[
+  {
+    "id": "gdp-labs-software-development-engineering-intern",
+    "company": "GDP Labs",
+    "role": "Software Development Engineering Intern",
+    "startDate": "Jun 2026",
+    "endDate": "Aug 2026",
+    "location": "Indonesia",
+    "description": "Incoming.",
+    "highlights": [
+      "Backend"
+    ],
+    "order": 1
+  },
+  {
+    "id": "ui-reinforcement-learning-research-assistant",
+    "company": "Faculty of Computer Science, Universitas Indonesia",
+    "role": "Research Assistant - Reinforcement Learning",
+    "startDate": "Apr 2026",
+    "endDate": "Jun 2026",
+    "location": "Depok, Indonesia",
+    "description": "Assisted robotic reinforcement learning experiments by integrating training and testing data in MuJoCo-based physics simulation environments and supporting model evaluation workflows.",
+    "highlights": [
+      "Python",
+      "Stable-Baselines3",
+      "Gymnasium",
+      "MuJoCo",
+      "Pinocchio IK",
+      "OMPL motion planning",
+      "Collision checking",
+      "HintCache experiments"
+    ],
+    "order": 2
+  },
+  {
+    "id": "fuki-fasilkom-ui-vice-lead-it-force",
+    "company": "Forum Ukhuwah dan Kajian Islam Fasilkom UI",
+    "role": "Vice Lead - IT Force Department",
+    "startDate": "May 2025",
+    "endDate": "Feb 2026",
+    "location": "Universitas Indonesia",
+    "description": "Developed web features with Django and Next.js while coordinating task breakdown, mentoring, and stakeholder collaboration to keep delivery on track under tight timelines.",
+    "highlights": [
+      "Django",
+      "Next.js",
+      "Cross-functional collaboration",
+      "Mentoring",
+      "Delivery coordination"
+    ],
+    "order": 3
+  },
+  {
+    "id": "tim-robotika-ui-lead-programming-division",
+    "company": "Tim Robotika Universitas Indonesia",
+    "role": "Lead of Programming Division",
+    "startDate": "Dec 2025",
+    "endDate": "Present",
+    "location": "Universitas Indonesia",
+    "description": "Designed C++ and Arduino modules for robot control and sensor integration, validating reliability through iterative testing and a lightweight Scrum workflow.",
+    "highlights": [
+      "C++",
+      "Arduino",
+      "Robot control",
+      "Sensor integration",
+      "Scrum workflow",
+      "Sprint demo and retro"
+    ],
+    "order": 4
+  }
+]
