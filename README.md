@@ -2,7 +2,7 @@
 
 Modern editorial portfolio built with Next.js App Router.
 
-## Run locally
+## Run Locally
 
 ```bash
 npm install
@@ -30,43 +30,93 @@ SMTP_USER=
 SMTP_PASS=
 SMTP_FROM=
 SMTP_TO=
-ADMIN_USERNAME=
-ADMIN_PASSWORD=
-ADMIN_SECRET=
 ```
 
 The contact form sends email through SMTP with Nodemailer. Credentials must stay in environment variables.
 
-## Admin
+## Content Data
 
-Admin routes:
+Projects and experience are read from JSON files:
 
-- `/admin`
-- `/admin/projects`
-- `/admin/projects/new`
-- `/admin/projects/[id]/edit`
-- `/admin/experience`
-- `/admin/experience/new`
-- `/admin/experience/[id]/edit`
+- `data/projects.json`
+- `data/experience.json`
 
-The admin uses a minimal cookie session based on `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `ADMIN_SECRET`. Admin pages are marked `noindex`.
+There is no admin panel. To update website content, edit the JSON files locally, commit the change, push to GitHub, and redeploy.
 
-## Data Storage
+## Edit Projects
 
-Projects and experience are stored in local JSON files under `data/`. This is fine for local development and a single Node server, but it is not ideal for serverless deployments because file writes may not persist.
+Open `data/projects.json`. Each project item follows this shape:
 
-Recommended production storage options:
+```json
+{
+  "id": "unique-project-id",
+  "title": "Project Name",
+  "slug": "project-name",
+  "category": "Backend Service / Java Spring Boot",
+  "year": "May 2026 - Jun 2026",
+  "description": "Short project description.",
+  "image": "",
+  "link": "https://example.com",
+  "repository": "https://github.com/example/repo",
+  "featured": true,
+  "order": 1
+}
+```
 
-- Prisma with SQLite or PostgreSQL
-- Supabase
-- Vercel Postgres
-- A small external CMS
+Rules:
+
+- `id` must be unique.
+- `slug` should be lowercase and URL-safe, for example `yomu-backend-service`.
+- `featured: true` places the project first in featured sections.
+- `order` controls display order. Smaller numbers appear first.
+- `image` can stay empty because the current UI uses text-only project cards.
+
+## Edit Experience
+
+Open `data/experience.json`. Each experience item follows this shape:
+
+```json
+{
+  "id": "unique-experience-id",
+  "company": "Company Name",
+  "role": "Role Title",
+  "startDate": "Jun 2026",
+  "endDate": "Aug 2026",
+  "location": "Indonesia",
+  "description": "Short experience description.",
+  "highlights": ["Backend", "CI/CD"],
+  "order": 1
+}
+```
+
+Rules:
+
+- `id` must be unique.
+- `highlights` must be an array of strings.
+- `order` controls display order. Smaller numbers appear first.
+
+## Update Website Content
+
+1. Edit `data/projects.json` or `data/experience.json`.
+2. Check JSON validity. A missing comma or quote will break the build.
+3. Run:
+
+```bash
+npm run build
+```
+
+4. Commit and push:
+
+```bash
+git add data/projects.json data/experience.json
+git commit -m "Update portfolio content"
+git push
+```
+
+5. Vercel will redeploy automatically if the repository is connected.
 
 ## Deployment Notes
 
-GitHub Pages only supports static output. The SMTP contact form and admin CRUD need a server runtime, so they will not work on plain GitHub Pages.
+The public portfolio content is JSON-based and safe for Vercel because the app only reads `data/*.json`.
 
-Options:
-
-1. Use static export and move email/admin to an external backend or CMS.
-2. Deploy to Vercel, Render, or Railway so Next.js route handlers, SMTP, and admin CRUD can run.
+The contact form still needs a server runtime because it uses `/api/contact` and SMTP. It works on Vercel, but not on plain GitHub Pages unless replaced with an external form service.
