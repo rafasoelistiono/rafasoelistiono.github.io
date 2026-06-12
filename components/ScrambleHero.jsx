@@ -96,8 +96,9 @@ export default function ScrambleHero() {
           <span className="scramble-name">{HERO_NAME}</span>
         </h1>
         <p className="scramble-summary">
-          Computer Science student at Universitas Indonesia focused on backend systems, full-stack
-          delivery, CI/CD-enabled teamwork, and robotics experiments.
+          Rafa Soelistiono, also known as rafasoelistiono, is a Computer Science student at
+          Universitas Indonesia focused on software engineering, web dev, backend systems,
+          CI/CD-enabled teamwork, and robotics experiments.
         </p>
         <a className="text-link scramble-cta" href="/contact">
           Start a conversation

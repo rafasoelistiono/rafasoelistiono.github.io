@@ -5,9 +5,9 @@ export default async function sitemap() {
 
   return [
     {
-      url: siteConfig.url,
+      url: absoluteUrl("/"),
       lastModified: now,
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1
     },
     {

@@ -2,19 +2,19 @@ import Link from "next/link";
 import ExperienceItem from "@/components/ExperienceItem";
 import SectionHeader from "@/components/SectionHeader";
 import { getExperienceItems } from "@/lib/experience";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata = {
-  title: "My Experience",
+  title: "Experience - Software Engineer and Web Developer",
   description:
-    "Software engineering, reinforcement learning research, and organizational leadership experience from Rafa Soelistiono.",
+    "Software engineering internship, web developer leadership, reinforcement learning research, and robotics experience from Rafa Soelistiono (rafasoelistiono).",
   alternates: {
     canonical: "/experience"
   },
   openGraph: {
-    title: "My Experience | Rafa Soelistiono",
+    title: "Experience - Software Engineer and Web Developer | Rafa Soelistiono",
     description:
-      "Software engineering, reinforcement learning research, and organizational leadership experience from Rafa Soelistiono.",
+      "Software engineering, web development, reinforcement learning research, and robotics experience from Rafa Soelistiono.",
     url: absoluteUrl("/experience")
   }
 };
@@ -29,9 +29,36 @@ export default async function ExperiencePage({ searchParams }) {
   const safePage = Math.min(currentPage, totalPages);
   const start = (safePage - 1) * EXPERIENCE_PER_PAGE;
   const visibleItems = items.slice(start, start + EXPERIENCE_PER_PAGE);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: "Experience of Rafa Soelistiono",
+    description: metadata.description,
+    url: absoluteUrl("/experience"),
+    mainEntity: {
+      "@type": "Person",
+      name: siteConfig.name,
+      alternateName: siteConfig.alternateName,
+      url: siteConfig.url,
+      hasOccupation: items.map((item) => ({
+        "@type": "Occupation",
+        name: item.role,
+        description: item.description,
+        skills: item.highlights?.join(", ")
+      })),
+      worksFor: items.map((item) => ({
+        "@type": "Organization",
+        name: item.company
+      }))
+    }
+  };
 
   return (
     <main className="page-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SectionHeader
         label="My Experience"
         title="Software engineering, research, and technical leadership in practice."

@@ -120,3 +120,18 @@ git push
 The public portfolio content is JSON-based and safe for Vercel because the app only reads `data/*.json`.
 
 The contact form still needs a server runtime because it uses `/api/contact` and SMTP. It works on Vercel, but not on plain GitHub Pages unless replaced with an external form service.
+
+## SEO Notes
+
+Set this environment variable in production so canonical URLs, Open Graph URLs, robots.txt, and sitemap.xml point to the correct domain:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://rafasoelistiono.tech
+```
+
+After changing the production domain, redeploy and submit these URLs in Google Search Console:
+
+- `https://rafasoelistiono.tech/sitemap.xml`
+- `https://rafasoelistiono.tech/googleebc6bd81654c30cc.html`
+
+The site includes Person, WebSite, ProfilePage, and project/experience structured data to help search engines understand that Rafa Soelistiono, rafasoelistiono, software engineer, web developer, and the portfolio content refer to the same entity.

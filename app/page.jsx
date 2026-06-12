@@ -23,10 +23,10 @@ export default async function HomePage() {
           <p className="eyebrow">Introduction</p>
           <h2 id="intro-title">Building, deploying, and improving systems that power user experience.</h2>
           <p>
-            I am an analytical problem-solver and fast learner with delivery experience across
-            software engineering internships, research in robotic reinforcement learning, product
-            teams, and programming leadership. I am seeking a tech intern role where I can help
-            build resilient systems from implementation to release readiness.
+            I am an analytical problem-solver and fast learner building toward software engineer
+            and web developer roles, with delivery experience across software engineering
+            internships, robotic reinforcement learning research, product teams, and programming
+            leadership. I can help build resilient systems from implementation to release readiness.
           </p>
           <a className="text-link" href="/experience">
             Read my experience <ArrowIcon className="link-arrow" />

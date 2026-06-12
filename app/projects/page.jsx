@@ -2,17 +2,19 @@ import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import SectionHeader from "@/components/SectionHeader";
 import { getProjects } from "@/lib/projects";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata = {
-  title: "My Project",
-  description: "Selected backend, full-stack, web mobile, and robotics projects by Rafa Soelistiono.",
+  title: "Projects - Web Dev, Backend, and Robotics",
+  description:
+    "Projects by Rafa Soelistiono (rafasoelistiono), a software engineer and web developer working across backend services, full-stack web, mobile platforms, and robotics.",
   alternates: {
     canonical: "/projects"
   },
   openGraph: {
-    title: "My Project | Rafa Soelistiono",
-    description: "Selected backend, full-stack, web mobile, and robotics projects by Rafa Soelistiono.",
+    title: "Projects - Web Dev, Backend, and Robotics | Rafa Soelistiono",
+    description:
+      "Selected software engineering, web dev, backend, and robotics projects by Rafa Soelistiono.",
     url: absoluteUrl("/projects")
   }
 };
@@ -27,9 +29,40 @@ export default async function ProjectsPage({ searchParams }) {
   const safePage = Math.min(currentPage, totalPages);
   const start = (safePage - 1) * PROJECTS_PER_PAGE;
   const visibleProjects = projects.slice(start, start + PROJECTS_PER_PAGE);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Projects by Rafa Soelistiono",
+    description: metadata.description,
+    url: absoluteUrl("/projects"),
+    author: {
+      "@type": "Person",
+      name: siteConfig.name,
+      alternateName: siteConfig.alternateName,
+      url: siteConfig.url
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.description,
+          url: project.link || project.repository || absoluteUrl("/projects"),
+          keywords: project.category
+        }
+      }))
+    }
+  };
 
   return (
     <main className="page-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SectionHeader
         label="My Project"
         title="A focused archive of backend, full-stack, and robotics systems."
