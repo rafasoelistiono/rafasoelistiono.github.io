@@ -276,6 +276,8 @@ textarea:focus-visible {
   min-height: 0.9em;
   overflow-wrap: anywhere;
   text-wrap: balance;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .scramble-summary {

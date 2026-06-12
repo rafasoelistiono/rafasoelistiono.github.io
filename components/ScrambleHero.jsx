@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 const HERO_NAME = "Rafa Soelistiono";
+const SCRAMBLE_SEED = "VXQJ NRTKPLMZQOX";
 
 export default function ScrambleHero() {
   const rootRef = useRef(null);
@@ -18,11 +19,16 @@ export default function ScrambleHero() {
 
       if (prefersReducedMotion) {
         if (headline) headline.textContent = HERO_NAME;
+        gsap.set(headline, { autoAlpha: 1, y: 0 });
         gsap.set([".scramble-abstract", ".scramble-summary", ".scramble-cta"], {
           autoAlpha: 1,
           y: 0,
         });
         return;
+      }
+
+      if (headline) {
+        headline.textContent = SCRAMBLE_SEED;
       }
 
       const timeline = gsap.timeline({ defaults: { ease: "expo.out" } });
@@ -49,19 +55,25 @@ export default function ScrambleHero() {
           },
           "-=0.55",
         )
+        .fromTo(
+          headline,
+          { autoAlpha: 0, y: 10 },
+          { autoAlpha: 1, y: 0, duration: 0.44 },
+          "-=0.34",
+        )
         .to(
           headline,
           {
-            duration: 4.2,
+            duration: 3,
             scrambleText: {
               text: HERO_NAME,
               chars: "upperAndLowerCase",
-              speed: 0.14,
-              revealDelay: 0.78,
+              speed: 0.16,
+              revealDelay: 0.46,
               delimiter: "",
             },
           },
-          "-=0.25",
+          "-=0.08",
         )
         .fromTo(
           ".scramble-summary",
